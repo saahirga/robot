@@ -1,0 +1,25 @@
+package langBasics;
+
+class Mechanism  {
+	
+}
+
+public class Robot {
+	public Robot() {
+		
+	}
+	double distanceFromOriginX = 0;
+	double distanceFromOriginY = 0;
+	public void moveDriveTrain(double rotations, double direction) {
+		distanceFromOriginX += rotations * Math.cos(Math.toRadians(direction));
+		distanceFromOriginY += rotations * Math.sin(Math.toRadians(direction));
+	}
+	public void printDisplacement() {
+		System.out.println(Math.sqrt(distanceFromOriginX *distanceFromOriginX + distanceFromOriginY *distanceFromOriginY) + 
+				" rotations away at " + 180/Math.PI *Math.atan(distanceFromOriginY / distanceFromOriginX) + " degrees above the horizontal");
+	}
+	public static void main(String[] args) {
+		Robot bot1 = new Robot();
+		bot1.moveDriveTrain(10, 45);
+		bot1.printDisplacement();
+	}
