@@ -1,25 +1,19 @@
 package langBasics;
 
-public class Vector {
-	double distanceFromOriginX = 0;
-	double distanceFromOriginY = 0;
-	
-	public void moveDriveTrain(double rotations, double direction) {
-		distanceFromOriginX += rotations * Math.cos(Math.toRadians(direction));
-		distanceFromOriginY += rotations * Math.sin(Math.toRadians(direction));
-	}
-	public void printDisplacement() {
-		System.out.println(Math.sqrt(distanceFromOriginX *distanceFromOriginX + distanceFromOriginY *distanceFromOriginY) + 
-		" rotations away at " + 180/Math.PI *Math.atan(distanceFromOriginY / distanceFromOriginX) + " degrees above the horizontal");
-	}
-public static void main(String[] args){
-		Vector roboVector = new Vector();
-		roboVector.moveDriveTrain(14, 45);
-		roboVector.printDisplacement();
-	}
-}
-//New class file
 public class Robot extends Vector{
+	public class Vector {
+		double distanceFromOriginX = 0;
+		double distanceFromOriginY = 0;
+		
+		public void moveDriveTrain(double rotations, double direction) {
+			distanceFromOriginX += rotations * Math.cos(Math.toRadians(direction));
+			distanceFromOriginY += rotations * Math.sin(Math.toRadians(direction));
+		}
+		public void printDisplacement() {
+			System.out.println(Math.sqrt(distanceFromOriginX *distanceFromOriginX + distanceFromOriginY *distanceFromOriginY) + 
+					" rotations away at " + 180/Math.PI *Math.atan(distanceFromOriginY / distanceFromOriginX) + " degrees above the horizontal");
+		}
+	}
 	static int numRobots = 0;
 	public Robot() {
 		numRobots += 1;
@@ -32,7 +26,6 @@ public class Robot extends Vector{
 		bot1.moveDriveTrain(5, 45);
 		bot1.moveDriveTrain(5, 45);
 		bot1.printDisplacement();
-		Robot bot2 = new Robot();
 		Robot.getNumRobots();
 	}
 }	
